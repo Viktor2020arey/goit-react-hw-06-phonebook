@@ -1,24 +1,37 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { useSelector, useDispatch } from "react-redux";
+import { filterContact } from "../../redux/contacts/contacts-actions";
+import {
+  getFilter,
+  getContacts,
+} from "../../redux/contacts/contacts-selectors";
+import { CSSTransition } from "react-transition-group";
+import popTransition from "../../utils/transitions/pop.module.css";
 import styles from "./Filter.module.css";
 
-function Filter({ value, onChange }) {
+function Filter() {
+  const dispatch = useDispatch();
+  const filter = useSelector(getFilter);
+  const contacts = useSelector(getContacts);
+
   return (
-    <label className={styles.label}>
-      Find contacts by name
-      <input
-        className={styles.input}
-        type="text"
-        value={value}
-        onChange={onChange}
-      />
-    </label>
+    <CSSTransition
+      in={contacts.length > 0}
+      timeout={250}
+      classNames={popTransition}
+      mountOnEnter
+      unmountOnExit
+    >
+      <label className={styles.label}>
+        Find contacts by name
+        <input
+          className={styles.input}
+          type="text"
+          value={filter}
+          onChange={(e) => dispatch(filterContact(e.target.value))}
+        />
+      </label>
+    </CSSTransition>
   );
 }
-
-Filter.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-};
 
 export default Filter;

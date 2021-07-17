@@ -15,16 +15,12 @@
 }
 
 .btn {
-  width: 30px;
+  padding: 0px;
   height: auto;
   cursor: pointer;
-  display: inline-block;
-  background-image: url(../img/delete.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-color: transparent;
   border: none;
   outline: none;
+  background-color: transparent;
 }
 
 .btn:hover {
