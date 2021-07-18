@@ -82,7 +82,6 @@ function ContactForm() {
       <label className={styles.label}>
         Number
         <input
-          options={{ delimiter: "-", blocks: [3, 2, 2] }}
           placeholder="123-45-67"
           type="tel"
           name="number"

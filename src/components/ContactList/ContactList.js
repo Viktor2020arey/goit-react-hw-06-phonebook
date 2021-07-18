@@ -8,7 +8,6 @@ import {
   getContacts,
 } from "../../redux/contacts/contacts-selectors";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-// import { ReactComponent as DeleteIcon } from "../../img/delete.svg";
 import { ReactComponent as DeleteIcon } from "../img/delete.svg";
 import popTransition from "../../utils/transitions/pop.module.css";
 
